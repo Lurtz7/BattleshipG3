@@ -2,19 +2,20 @@
 
     var input = "<div class='boardCell'></div>";
 
-    $("#5x5").onclick(function Game() {
-        alert("Hej");
+    $("#5x5").click(function Game() {
+        //alert("Hej");
 
-    for (var i = 0; i < 5; i++) {
-        $(".boardBody").append(input);
         for (var i = 0; i < 5; i++) {
-            
             $(".boardBody").append(input);
+            for (var i = 0; i < 5; i++) {
+
+                $(".boardBody").append(input);
+
+            }
+
 
         }
-
-
-    }
+    });
 
 });
 
