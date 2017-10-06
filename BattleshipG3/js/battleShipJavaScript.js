@@ -1,51 +1,140 @@
 ﻿$(document).ready(function () {
 
-    var input = "<div class='boardCell'></div>";
-    var inputArray = [
-        [input, input]  
-    ];
+    var input = "<div class='boardCell' id= 'hit')></div>";
+ 
+
+   
     $("#5x5").click(function Game5x5() {
-        
+        var iMax = 5;
+        var jMax = 5;
+        var f = new Array();
+
+        for (i = 0; i < iMax; i++) {
+            f[i] = new Array();
+            for (j = 0; j < jMax; j++) {
+                f[i][j] = 0;
+            }
+        }
+
+        var X = Math.floor((Math.random() * (f.length)));
+        var Y = Math.floor((Math.random() * (f.length)));
+
+
+        var ship = [X ,Y];
        
-        for (var i = 0; i < 5*5; i++) {
-            $(".boardBody").append(input);
-            if ((i + 1) % 5 == 0) {
-                $(".boardBody").append("<br/>");
+
+        for (var i = 0; i < f.length; i++) {
+          
+
+            for (var j = 0; j < f.length; j++) {
+                var hit = [i, j];
+                $(".boardBody").append(input);
+                
+                
+                if ((j + 1) % 5 == 0) {
+                    $(".boardBody").append("<br/>");
+                    
+                }
+
 
             }
+        }
+        
 
-           
-        }    
-      
+      $(".boardCell").click(function Hit() {
+          if (hit == ship) {
+                var input2 = "<div class='boardCell'>O</div>";
+                $("#hit").append(input2);
+            }
+            else {
+                var input3 = "<div class='boardCell' >X</div>";
+                $("#hit", ).append(input3);
+            }
+            
+
+
+        });
     });
     $("#10x10").click(function Game10x10() {
 
 
-        for (var i = 0; i < 10 * 10; i++) {
-            $(".boardBody").append(input);
-            if ((i + 1) % 10 == 0) {
-                $(".boardBody").append("<br/>");
+        var iMax = 10;
+        var jMax = 10;
+        var f = new Array();
+
+        for (i = 0; i < iMax; i++) {
+            f[i] = new Array();
+            for (j = 0; j < jMax; j++) {
+                f[i][j] = 0;
+            }
+        }
+
+        var X = Math.floor((Math.random() * (f.length)));
+        var Y = Math.floor((Math.random() * (f.length)));
+
+
+        var ship = [X, Y];
+
+
+        for (var i = 0; i < f.length; i++) {
+
+
+            for (var j = 0; j < f.length; j++) {
+                var hit = [i, j];
+                $(".boardBody").append(input);
+
+
+                if ((j + 1) % 10 == 0) {
+                    $(".boardBody").append("<br/>");
+
+                }
+
 
             }
-
-
         }
 
     });
     $("#15x15").click(function Game15x15() {
 
 
-        for (var i = 0; i < 15 * 15; i++) {
-            $(".boardBody").append(input);
-            if ((i + 1) % 15 == 0) {
-                $(".boardBody").append("<br/>");
+        var iMax = 15;
+        var jMax = 15;
+        var f = new Array();
+
+        for (i = 0; i < iMax; i++) {
+            f[i] = new Array();
+            for (j = 0; j < jMax; j++) {
+                f[i][j] = 0;
+            }
+        }
+
+        var X = Math.floor((Math.random() * (f.length)));
+        var Y = Math.floor((Math.random() * (f.length)));
+
+
+        var ship = [X, Y];
+
+
+        for (var i = 0; i < f.length; i++) {
+
+
+            for (var j = 0; j < f.length; j++) {
+                var hit = [i, j];
+                $(".boardBody").append(input);
+
+
+                if ((j + 1) % 15 == 0) {
+                    $(".boardBody").append("<br/>");
+
+                }
+
 
             }
-
-
         }
 
     });
+
+   
 });
 
 
