@@ -11,3 +11,161 @@
 
 </body>
 </html>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class BattleShips
+    {
+        static void Main(string[] args)
+        {
+            bool avsluta = false;
+
+            int xLed;
+            int yLed;
+
+            while (avsluta == false)
+            {
+                Console.WriteLine("Ange hur stor spelplan du vill ha i X-led");
+                xLed = Test();
+                //if (xLed > 10 || xLed < 2) xLed = 10;
+                Console.WriteLine("Ange hur stor spelplan du vill ha i Y-led");
+                yLed = Test();
+                //if (yLed > 10 || yLed < 2) yLed = 10;
+
+
+                char[,] gameBoard = new char[xLed, yLed];
+                CreateBoard(xLed, yLed);
+                //int shipX;
+                //int shipY;// = ShipCoordinates(yLed);
+
+                var result = ShipCoordinates(xLed, yLed);
+
+                StartGame(gameBoard, result.Item1, result.Item2);
+            }
+        }
+
+        //Skapar en spelplan
+        static char[,] CreateBoard(int shipX, int shipY)
+        {
+            int x = shipX;
+            int y = shipY;
+            char[,] gameBoard = new char[x, y];
+
+            for (int i = 0; i < gameBoard.GetLength(0); i++) //Row
+            {
+                for (int j = 0; j < gameBoard.GetLength(1); j++) //Column
+                {
+                    gameBoard[i, j] = ' ';
+                }
+            }
+            return gameBoard;
+        }
+
+        //Random Ship Coordinates
+        static Tuple<int, int>
+    ShipCoordinates(int maxSizeX, int maxSizeY)
+    {
+    Random rnd = new Random();
+    int rangeX = maxSizeX;
+    int rangeY = maxSizeY;
+    int coordinate;
+    var tuple = new Tuple<int, int>
+        (coordinate = rnd.Next(rangeX), coordinate = rnd.Next(rangeY));
+        return tuple;
+        }
+
+
+        //TEST int.tryParse()
+        static int Test()
+        {
+        bool avsluta = false;
+        int tal = 0;
+        string svar;
+        while (avsluta == false)
+        {
+        svar = Console.ReadLine();
+        try
+        {
+        tal = int.Parse(svar);
+        avsluta = true;
+        }
+
+        catch (Exception e)
+        {
+        Console.WriteLine(e.Message);
+        Console.WriteLine("Försök igen");
+        }
+
+        }
+
+        return tal;
+        }
+
+        //Skriver ut spelplanen
+        static void PrintGamePlan(char[,] gameBoard)
+        {
+        Console.Write("   ");
+        for (int i = 0; i < gameBoard.GetLength(0); i++)
+        {
+        Console.Write($"| {i + 1} ");
+        }
+        Console.WriteLine("|");
+
+        for (int i = 0; i < gameBoard.GetLength(1); i++)
+        {
+        Console.Write($" {i + 1} |");
+        for (int j = 0; j < gameBoard.GetLength(0); j++)
+        {
+        Console.Write($" {gameBoard[i, j]}  ");
+        }
+        Console.WriteLine("");
+        }
+        }
+        //Startar spelet
+        static void StartGame(char[,] gameB, int xLed, int yLed)
+        {
+        bool runGame = true;
+        int shipX = xLed;
+        int shipY = yLed;
+        char[,] gameBoard = new char[shipX, shipY];
+        gameBoard = gameB;
+
+        int guessX;
+        int guessY;
+        //Console.WriteLine(shipX + " " + shipY); //Skriver ut koordinater på skärm
+        Console.ReadLine();
+        while (runGame)
+
+        {
+        Console.Clear();
+
+        PrintGamePlan(gameBoard);
+        Console.WriteLine("NYTT SKOTT");
+        Console.Write($"Ange X-koordinat (1-{gameBoard.GetLength(0)}): ");
+        guessX = Test() - 1;
+        Console.Write($"Ange Y-koordinat (1-{gameBoard.GetLength(1)}): ");
+        guessY = Test() - 1;
+
+        if (guessX == shipX && guessY == shipY)
+        {
+        Console.Clear();
+        gameBoard[guessX, guessY] = 'X';
+        PrintGamePlan(gameBoard);
+        Console.WriteLine("Träff!!!");
+        //Lägg till - Vill du spela igen?
+
+        Console.ReadLine();
+        runGame = false;
+        }
+        else
+        gameBoard[guessX, guessY] = '*';
+        }
+        }
+        }
+        }
