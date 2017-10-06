@@ -3,22 +3,18 @@
     
 }
 
-.boardRow {
-    display: table-row;
-}
-
 
 
 .boardCell {
     display: table-cell;
     padding: 2px 2px;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #999999;
 }
-
-.boardHeading {
-    display: table-header-group;
-    font-weight: bold;
+br {
+    content: "";
 }
+
+
 

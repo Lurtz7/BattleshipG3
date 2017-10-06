@@ -1,22 +1,51 @@
 ﻿$(document).ready(function () {
 
     var input = "<div class='boardCell'></div>";
-
+    var inputArray = [
+        [input, input]  
+    ];
     $("#5x5").click(function Game() {
-        //alert("Hej");
-
-        for (var i = 0; i < 5; i++) {
+        
+       
+        for (var i = 0; i < 5*5; i++) {
             $(".boardBody").append(input);
-            for (var i = 0; i < 5; i++) {
+            if ((i + 1) % 5 == 0) {
+                $(".boardBody").append("<br/>");
 
-                $(".boardBody").append(input);
+            }
+
+           
+        }    
+      
+    });
+    $("#5x5").click(function Game() {
+
+
+        for (var i = 0; i < 5 * 5; i++) {
+            $(".boardBody").append(input);
+            if ((i + 1) % 5 == 0) {
+                $(".boardBody").append("<br/>");
 
             }
 
 
         }
-    });
 
+    });
+    $("#5x5").click(function Game() {
+
+
+        for (var i = 0; i < 5 * 5; i++) {
+            $(".boardBody").append(input);
+            if ((i + 1) % 5 == 0) {
+                $(".boardBody").append("<br/>");
+
+            }
+
+
+        }
+
+    });
 });
 
 
