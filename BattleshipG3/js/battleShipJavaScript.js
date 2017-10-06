@@ -1,9 +1,12 @@
-﻿$(document).ready(function () {
+﻿var ship;
+var hit;
+$(document).ready(function () {
 
-    var input = "<div class='boardCell' id= 'hit')></div>";
- 
+    var input = "<div class='boardCell'></div>";
 
-   
+
+
+
     $("#5x5").click(function Game5x5() {
         var iMax = 5;
         var jMax = 5;
@@ -20,40 +23,48 @@
         var Y = Math.floor((Math.random() * (f.length)));
 
 
-        var ship = [X ,Y];
-       
+        ship = [X, Y];
+
 
         for (var i = 0; i < f.length; i++) {
-          
+
 
             for (var j = 0; j < f.length; j++) {
-                var hit = [i, j];
-                $(".boardBody").append(input);
-                
-                
+                hit = [i, j];
+                $(".boardBody").append("<div class='boardCell' id='ship_" + i + "_" + j + "'></div>");
+
+
                 if ((j + 1) % 5 == 0) {
                     $(".boardBody").append("<br/>");
-                    
+
                 }
 
 
             }
         }
-        
 
-      $(".boardCell").click(function Hit() {
-          if (hit == ship) {
-                var input2 = "<div class='boardCell'>O</div>";
-                $("#hit").append(input2);
+
+        $(".boardCell").click(function Hit() {
+
+            var id = $(this).attr("id");
+
+            var hit = id.split("_");
+
+            if (hit[1] == ship[0] && hit[2] == ship[1]) {
+                var input2 = "O";
+                //$(hit).append(input2);
+                $("#" + id).addClass("boardCellHit");
             }
             else {
-                var input3 = "<div class='boardCell' >X</div>";
-                $("#hit", ).append(input3);
+                var input3 = "X";
+                //$(hit).append(input3);
+                $("#" + id).addClass("boardCellMiss");
             }
-            
+
 
 
         });
+
     });
     $("#10x10").click(function Game10x10() {
 
@@ -134,7 +145,7 @@
 
     });
 
-   
+
 });
 
 
