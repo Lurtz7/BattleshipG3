@@ -4,7 +4,7 @@
     var inputArray = [
         [input, input]  
     ];
-    $("#5x5").click(function Game() {
+    $("#5x5").click(function Game5x5() {
         
        
         for (var i = 0; i < 5*5; i++) {
@@ -18,12 +18,12 @@
         }    
       
     });
-    $("#5x5").click(function Game() {
+    $("#10x10").click(function Game10x10() {
 
 
-        for (var i = 0; i < 5 * 5; i++) {
+        for (var i = 0; i < 10 * 10; i++) {
             $(".boardBody").append(input);
-            if ((i + 1) % 5 == 0) {
+            if ((i + 1) % 10 == 0) {
                 $(".boardBody").append("<br/>");
 
             }
@@ -32,12 +32,12 @@
         }
 
     });
-    $("#5x5").click(function Game() {
+    $("#15x15").click(function Game15x15() {
 
 
-        for (var i = 0; i < 5 * 5; i++) {
+        for (var i = 0; i < 15 * 15; i++) {
             $(".boardBody").append(input);
-            if ((i + 1) % 5 == 0) {
+            if ((i + 1) % 15 == 0) {
                 $(".boardBody").append("<br/>");
 
             }
