@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
 
-    var input = <div class='tableCell'></div>;
+    var input = "<div class='boardCell'></div>";
 
-    $("#5x5").click(function () {
+    $("#5x5").onclick(function Game() {
         alert("Hej");
 
     for (var i = 0; i < 5; i++) {
