@@ -16,31 +16,35 @@
 
            
         }    
-        $("#5x5").click(function Game() {
+      
+    });
+    $("#5x5").click(function Game() {
 
 
-            for (var i = 0; i < 5 * 5; i++) {
-                $(".boardBody").append(input);
-                if ((i + 1) % 5 == 0) {
-                    $(".boardBody").append("<br/>");
+        for (var i = 0; i < 5 * 5; i++) {
+            $(".boardBody").append(input);
+            if ((i + 1) % 5 == 0) {
+                $(".boardBody").append("<br/>");
 
-                }
-
-
-            }    
-
-            $("#5x5").click(function Game() {
+            }
 
 
-                for (var i = 0; i < 5 * 5; i++) {
-                    $(".boardBody").append(input);
-                    if ((i + 1) % 5 == 0) {
-                        $(".boardBody").append("<br/>");
+        }
 
-                    }
+    });
+    $("#5x5").click(function Game() {
 
 
-                }    
+        for (var i = 0; i < 5 * 5; i++) {
+            $(".boardBody").append(input);
+            if ((i + 1) % 5 == 0) {
+                $(".boardBody").append("<br/>");
+
+            }
+
+
+        }
+
     });
 });
 
